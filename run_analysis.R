@@ -55,5 +55,6 @@ summaryData <- ddply(masterData, .(subject, activity), numcolwise(mean))
 # rename activity names
 summaryData$activity <- factor(summaryData$activity, labels = activityLabels[,2])
 
-# export summarydata to current working dir as a csv file
+# export summarydata to current working dir
 write.csv(summaryData,row.names=FALSE, file=file.path(summaryFolder,"summary.csv"))
+write.table(summaryData,row.names=FALSE,file=file.path(summaryFolder,"summary.txt"))
